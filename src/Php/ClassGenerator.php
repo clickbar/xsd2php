@@ -127,7 +127,7 @@ class ClassGenerator
         $patramTag = new ParamTag($prop->getName());
         $docblock->setTag($patramTag);
 
-        $return = new ReturnTag('self');
+        $return = new ReturnTag('static');
         $docblock->setTag($return);
 
         $type = $prop->getType();
@@ -284,7 +284,7 @@ class ClassGenerator
         }
 
         $return = new ReturnTag();
-        $return->setTypes('self');
+        $return->setTypes('static');
         $docblock->setTag($return);
 
         $patramTag = new ParamTag($propName, $type->getArg()->getType()->getPhpType());
