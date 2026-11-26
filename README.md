@@ -87,9 +87,9 @@ xsd2php:
 #    "http://www.example.org/test/somefile.xsd": somefile.xsd
 #  known_namespace_locations: # optional
 #    "urn:veloconnect:catalog-1.1": xsd/catalog-1.1.xsd
-# configs_jms:  #optional
-#   xml_cdata: false # Disables CDATA
-#   decimal_type: decimal # JMS-only alias for xs:decimal; requires a custom handler
+#  configs_jms: # optional
+#    xml_cdata: false # Disables CDATA
+#    decimal_type: decimal # JMS-only alias for xs:decimal; requires a custom handler
 ```
 
 Here is an explanation on the meaning of each parameter:
