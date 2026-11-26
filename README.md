@@ -89,6 +89,7 @@ xsd2php:
 #    "urn:veloconnect:catalog-1.1": xsd/catalog-1.1.xsd
 # configs_jms:  #optional
 #   xml_cdata: false # Disables CDATA
+#   decimal_type: decimal # JMS-only alias for xs:decimal; requires a custom handler
 ```
 
 Here is an explanation on the meaning of each parameter:
@@ -122,6 +123,12 @@ Here is an explanation on the meaning of each parameter:
   This can be used to read schemas which import namespaces but do not specify schemaLocation attributes.
 
 * `xsd2php.configs_jms.xml_cdata` (optional) Specify if CDATA should be used or not in serialization.
+
+* `xsd2php.configs_jms.decimal_type` (optional) Override the JMS type for `xs:decimal`
+  and derived decimal types without changing the generated PHP types. For example,
+  `decimal_type: decimal` allows a custom JMS handler to emit decimal notation
+  without exponents while PHP values remain floats. Register a handler for the
+  configured type. When omitted, existing type mappings remain unchanged.
 
 ## Generate PHP classes and JMS metadata info
 

@@ -54,6 +54,13 @@ class Xsd2PhpExtension extends Extension
         if ($config['configs_jms']) {
             $converter = $container->getDefinition('goetas_webservices.xsd2php.converter.jms');
             $converter->addMethodCall('setUseCdata', [$config['configs_jms']['xml_cdata']]);
+            if (isset($config['configs_jms']['decimal_type'])) {
+                $converter->addMethodCall('addAliasMapType', [
+                    'http://www.w3.org/2001/XMLSchema',
+                    'decimal',
+                    self::sanitizePhp($config['configs_jms']['decimal_type']),
+                ]);
+            }
         }
 
         $container->setParameter('goetas_webservices.xsd2php.config', $config);
